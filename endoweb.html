@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding Endometriosis</title>
+  <style>
+    :root {
+      --primary-color: #9b59b6;
+      --secondary-color: #8e44ad;
+      --accent-color: #d5b8ff;
+      --light-bg: #f9f0ff;
+      --dark-text: #333;
+      --light-text: #fff;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--dark-text);
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+    }
+    
+    header {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      text-align: center;
+      padding: 2rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    nav {
+      background-color: var(--secondary-color);
+      padding: 0.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav li {
+      margin: 0 1rem;
+    }
+    
+    nav a {
+      color: var(--light-text);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    
+    section {
+      margin-bottom: 3rem;
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1, h2, h3 {
+      color: var(--secondary-color);
+    }
+    
+    h1 {
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+    }
+    
+    h2 {
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+      margin-top: 0;
+    }
+    
+    .faq-item {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 1rem;
+    }
+    
+    .faq-question {
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .faq-question::after {
+      content: "+";
+      font-size: 1.2rem;
+    }
+    
+    .faq-question.active::after {
+      content: "-";
+    }
+    
+    .faq-answer {
+      display: none;
+      padding: 1rem 0;
+    }
+    
+    .faq-answer.show {
+      display: block;
+    }
+    
+    .symptom-tracker {
+      background-color: var(--light-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+    
+    .symptom-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .symptom-item {
+      display: flex;
+      align-items: center;
+    }
+    
+    .cta-button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .cta-button:hover {
+      background-color: var(--secondary-color);
+    }
+    
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .resource-card {
+      background-color: var(--light-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    
+    .resource-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    footer {
+      background-color: var(--secondary-color);
+      color: var(--light-text);
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+    
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      nav li {
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Understanding Endometriosis</h1>
+      <p>Education, awareness, and support for those affected by endometriosis</p>
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#symptoms">Symptoms</a></li>
+      <li><a href="#tracker">Symptom Tracker</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#resources">Resources</a></li>
+    </ul>
+  </nav>
+  
+  <main>
+    <section id="about">
+      <h2>What is Endometriosis?</h2>
+      <p>Endometriosis is a condition where tissue similar to the lining of the uterus (the endometrium) grows outside the uterus, commonly on the ovaries, fallopian tubes, and tissues lining the pelvis. This tissue acts just like regular endometrial tissue — it builds up, breaks down, and bleeds with each menstrual cycle. However, because it has no way to leave the body, it becomes trapped, leading to pain, inflammation, and the formation of scar tissue.</p>
+      
+      <p>Affecting approximately 1 in 10 women and individuals assigned female at birth during their reproductive years, endometriosis is a significant but often underdiagnosed health concern. The average delay in diagnosis is 7-10 years from the onset of symptoms.</p>
+      
+      <div id="endo-stats">
+        <p><strong>Loading endometriosis statistics...</strong></p>
+      </div>
+    </section>
+    
+    <section id="symptoms">
+      <h2>Common Symptoms</h2>
+      <p>Symptoms of endometriosis can vary widely among individuals. Some people may experience severe symptoms while others have minimal or no symptoms.</p>
+      
+      <ul id="symptom-list">
+        <li>Painful periods (dysmenorrhea)</li>
+        <li>Pain during or after sexual intercourse</li>
+        <li>Pain with bowel movements or urination</li>
+        <li>Excessive bleeding during periods or between periods</li>
+        <li>Infertility or difficulty getting pregnant</li>
+        <li>Fatigue</li>
+        <li>Digestive issues like diarrhea, constipation, or bloating, especially during menstruation</li>
+        <li>Lower back and abdominal pain</li>
+      </ul>
+      
+      <p><strong>Note:</strong> The severity of pain doesn't necessarily indicate the extent or stage of the condition. Even mild endometriosis can cause severe pain, while advanced endometriosis might cause little or no pain.</p>
+    </section>
+    
+    <section id="tracker">
+      <h2>Symptom Tracker</h2>
+      <div class="symptom-tracker">
+        <p>Use this simple tracker to monitor your symptoms. This can be helpful when discussing your condition with healthcare providers.</p>
+        
+        <div class="symptom-grid">
+          <div class="symptom-item">
+            <input type="checkbox" id="pain-periods" name="symptoms">
+            <label for="pain-periods">Painful periods</label>
+          </div>
+          
+          <div class="symptom-item">
+            <input type="checkbox" id="pain-intercourse" name="symptoms">
+            <label for="pain-intercourse">Pain during intercourse</label>
+          </div>
+          
+          <div class="symptom-item">
+            <input type="checkbox" id="pain-bowel" name="symptoms">
+            <label for="pain-bowel">Pain with bowel movements</label>
+          </div>
+          
+          <div class="symptom-item">
+            <input type="checkbox" id="excessive-bleeding" name="symptoms">
+            <label for="excessive-bleeding">Excessive bleeding</label>
+          </div>
+          
+          <div class="symptom-item">
+            <input type="checkbox" id="fatigue" name="symptoms">
+            <label for="fatigue">Fatigue</label>
+          </div>
+          
+          <div class="symptom-item">
+            <input type="checkbox" id="digestive-issues" name="symptoms">
+            <label for="digestive-issues">Digestive issues</label>
+          </div>
+          
+          <div class="symptom-item">
+            <input type="checkbox" id="back-pain" name="symptoms">
+            <label for="back-pain">Lower back pain</label>
+          </div>
+          
+          <div class="symptom-item">
+            <input type="checkbox" id="bloating" name="symptoms">
+            <label for="bloating">Bloating</label>
+          </div>
+        </div>
+        
+        <p>Pain intensity (1-10): <input type="number" id="pain-level" min="1" max="10" value="5"></p>
+        
+        <button class="cta-button" id="save-symptoms">Save Symptoms</button>
+        <p id="tracker-message"></p>
+      </div>
+    </section>
+    
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question">What causes endometriosis?</div>
+        <div class="faq-answer">
+          <p>The exact cause of endometriosis is not fully understood, but several theories exist:</p>
+          <ul>
+            <li><strong>Retrograde menstruation:</strong> Menstrual blood flows back through the fallopian tubes into the pelvic cavity.</li>
+            <li><strong>Genetic factors:</strong> Endometriosis can run in families.</li>
+            <li><strong>Immune system issues:</strong> Problems with the immune system may prevent the body from recognizing and destroying endometrial tissue outside the uterus.</li>
+            <li><strong>Hormone imbalances:</strong> Estrogen promotes endometriosis.</li>
+            <li><strong>Surgical scarring:</strong> Endometrial cells may attach to a surgical incision after procedures like a C-section.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">How is endometriosis diagnosed?</div>
+        <div class="faq-answer">
+          <p>The only definitive way to diagnose endometriosis is through laparoscopy, a minimally invasive surgical procedure where a surgeon looks inside the abdomen with a camera. However, healthcare providers often use a combination of methods:</p>
+          <ul>
+            <li>Detailed medical history and symptom review</li>
+            <li>Pelvic examination</li>
+            <li>Ultrasound or MRI imaging</li>
+            <li>Laparoscopy with tissue biopsy (the gold standard)</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">How is endometriosis treated?</div>
+        <div class="faq-answer">
+          <p>Treatment options vary depending on the severity of symptoms, whether you want to become pregnant, and how the condition affects your quality of life:</p>
+          <ul>
+            <li><strong>Pain medication:</strong> Over-the-counter pain relievers like NSAIDs</li>
+            <li><strong>Hormone therapy:</strong> Birth control pills, progestins, gonadotropin-releasing hormone agonists and antagonists</li>
+            <li><strong>Conservative surgery:</strong> Removing endometriosis implants while preserving the uterus and ovaries</li>
+            <li><strong>Hysterectomy:</strong> In severe cases where other treatments haven't worked</li>
+            <li><strong>Complementary approaches:</strong> Dietary changes, acupuncture, physical therapy, stress management</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Can I get pregnant if I have endometriosis?</div>
+        <div class="faq-answer">
+          <p>While endometriosis can affect fertility, many people with the condition can still conceive naturally. About 30-40% of women with endometriosis may experience difficulties with fertility. The relationship between endometriosis and fertility can involve:</p>
+          <ul>
+            <li>Distorted pelvic anatomy due to scarring</li>
+            <li>Impaired egg release or development</li>
+            <li>Altered immune function affecting implantation</li>
+            <li>Poor egg quality</li>
+            <li>Compromised tubal function</li>
+          </ul>
+          <p>If you're having difficulty conceiving, fertility treatments including medications, surgery, or assisted reproductive technologies like IVF may help. Early discussion with a reproductive endocrinologist is recommended.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section id="resources">
+      <h2>Resources & Support</h2>
+      <p>Finding support and accurate information is essential when managing endometriosis.</p>
+      
+      <div class="resource-grid">
+        <div class="resource-card">
+          <h3>Endometriosis Organizations</h3>
+          <ul>
+            <li>Endometriosis Foundation of America</li>
+            <li>Endometriosis Association</li>
+            <li>World Endometriosis Society</li>
+          </ul>
+        </div>
+        
+        <div class="resource-card">
+          <h3>Support Groups</h3>
+          <p>Connect with others who understand what you're going through. Local and online support groups can provide emotional support and practical advice.</p>
+          <button class="cta-button" id="find-support">Find Local Support</button>
+        </div>
+        
+        <div class="resource-card">
+          <h3>Healthcare Provider Finder</h3>
+          <p>Finding a healthcare provider experienced with endometriosis can significantly impact your care.</p>
+          <button class="cta-button" id="find-doctor">Find Specialist</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>This page is provided for educational purposes only and is not a substitute for professional medical advice.</p>
+    <p>Always consult with a qualified healthcare provider regarding any medical conditions.</p>
+    <p>&copy; <span id="current-year"></span> Endometriosis Awareness Project</p>
+  </footer>
+  
+  <script>
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // FAQ accordion functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        // Toggle active class on the question
+        question.classList.toggle('active');
+        
+        // Toggle show class on the answer
+        const answer = question.nextElementSibling;
+        if (answer.classList.contains('show')) {
+          answer.classList.remove('show');
+        } else {
+          answer.classList.add('show');
+        }
+      });
+    });
+    
+    // Symptom tracker functionality
+    document.getElementById('save-symptoms').addEventListener('click', () => {
+      const checkedSymptoms = [];
+      document.querySelectorAll('input[name="symptoms"]:checked').forEach(symptom => {
+        checkedSymptoms.push(symptom.nextElementSibling.textContent);
+      });
+      
+      const painLevel = document.getElementById('pain-level').value;
+      
+      // In a real app, this would save to local storage or a backend
+      let message = '';
+      if (checkedSymptoms.length > 0) {
+        message = `Symptoms tracked: ${checkedSymptoms.join(', ')} with pain level ${painLevel}/10`;
+      } else {
+        message = `Pain level ${painLevel}/10 recorded. No specific symptoms selected.`;
+      }
+      
+      // Show confirmation message
+      const trackerMessage = document.getElementById('tracker-message');
+      trackerMessage.textContent = message;
+      trackerMessage.style.color = '#9b59b6';
+      trackerMessage.style.fontWeight = 'bold';
+      
+      // Store in localStorage (simplified version)
+      const today = new Date().toISOString().slice(0, 10);
+      const symptomLog = JSON.parse(localStorage.getItem('endoSymptomLog') || '{}');
+      symptomLog[today] = {
+        symptoms: checkedSymptoms,
+        painLevel: painLevel
+      };
+      localStorage.setItem('endoSymptomLog', JSON.stringify(symptomLog));
+      
+      setTimeout(() => {
+        trackerMessage.textContent = 'Your symptom data has been saved. Tracking over time can help identify patterns.';
+        trackerMessage.style.fontWeight = 'normal';
+      }, 3000);
+    });
+    
+    // Find support button
+    document.getElementById('find-support').addEventListener('click', () => {
+      alert('In a full application, this would redirect to a page with a directory of local and online support groups. For now, please search for "endometriosis support groups" or visit endometriosis.org for more information.');
+    });
+    
+    // Find doctor button
+    document.getElementById('find-doctor').addEventListener('click', () => {
+      alert('In a full application, this would provide a search tool for finding specialists in your area. For now, please search for "endometriosis specialist" or consult with your primary care provider for a referral.');
+    });
+    
+    // Load endometriosis statistics asynchronously (simulating an API call)
+    setTimeout(() => {
+      const statistics = [
+        "Endometriosis affects approximately 1 in 10 women of reproductive age worldwide.",
+        "The average delay in diagnosis is 7-10 years from the onset of symptoms.",
+        "Endometriosis is a leading cause of infertility, affecting up to 40% of women with the condition.",
+        "It costs the US economy an estimated $78 billion annually in lost productivity and healthcare costs."
+      ];
+      
+      const statsContainer = document.getElementById('endo-stats');
+      statsContainer.innerHTML = '<h3>Key Statistics</h3><ul id="stats-list"></ul>';
+      
+      const statsList = document.getElementById('stats-list');
+      statistics.forEach(stat => {
+        const listItem = document.createElement('li');
+        listItem.textContent = stat;
+        statsList.appendChild(listItem);
+      });
+    }, 1000);
+    
+    // Highlight symptoms in the list with animation (demonstrating DOM manipulation)
+    function highlightSymptoms() {
+      const symptoms = document.querySelectorAll('#symptom-list li');
+      let index = 0;
+      
+      function highlight() {
+        // Reset all
+        symptoms.forEach(s => s.style.color = '');
+        
+        // Highlight current
+        if (symptoms[index]) {
+          symptoms[index].style.color = '#9b59b6';
+          symptoms[index].style.fontWeight = 'bold';
+        }
+        
+        // Move to next
+        index = (index + 1) % symptoms.length;
+      }
+      
+      // Initial highlight
+      highlight();
+      
+      // Set interval for continuing highlights
+      setTimeout(() => {
+        setInterval(highlight, 2000);
+      }, 3000);
+    }
+    
+    // Run highlight function when page loads
+    window.addEventListener('load', highlightSymptoms);
+    
+    // Smooth scrolling for navigation
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        window.scrollTo({
+          top: targetElement.offsetTop - 70,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
